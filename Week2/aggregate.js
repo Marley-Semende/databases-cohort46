@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 const mysql = require("mysql2/promise");
 const createConnection = require("./connection");
 const { createResearchTb, insertResearchPapersData } = require("./createResearchPapers.js");
