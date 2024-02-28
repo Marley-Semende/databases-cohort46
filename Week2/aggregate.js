@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const mysql = require("mysql2/promise");
 const createConnection = require("./connection");
@@ -14,7 +15,7 @@ async function executeQueries() {
             GROUP BY rp.paper_id;
         `;
         const [rows1] = await connection.query(query1);
-        console.log("Query 1 result:", rows1);
+        console.log("Query 1 result:", rows)
 const createConnection = require("./connection");
 const promiseQuery = require('./dbUtils');
 const { createAuthorTb } = require("./createAuthorTable");
