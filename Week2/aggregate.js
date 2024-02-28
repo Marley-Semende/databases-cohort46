@@ -1,3 +1,4 @@
+
 const mysql = require("mysql2/promise");
 const createConnection = require("./connection");
 const { createResearchTb, insertResearchPapersData } = require("./createResearchPapers.js");
@@ -14,6 +15,20 @@ async function executeQueries() {
         `;
         const [rows1] = await connection.query(query1);
         console.log("Query 1 result:", rows1);
+const createConnection = require("./connection");
+const promiseQuery = require('./dbUtils');
+const { createAuthorTb } = require("./createAuthorTable");
+
+async function executeQueries() {
+    try {
+       const connection = await createConnection();
+
+        const query1 = `
+            SELECT rp.paper_title, COUNT(ap.author_id) AS num_authors
+            FROM research_papers rp
+            LEFT JOIN author_paper ap ON rp.paper_id = ap.paper_id
+            GROUP BY rp.paper_id;
+        `;
 
         const query2 = `
             SELECT SUM(num_papers) AS total_female_papers
@@ -47,6 +62,18 @@ async function executeQueries() {
             GROUP BY university;
         `;
         const [rows4] = await connection.query(query4);
+
+        const [rows1] = await connection.query(query1);
+        console.log("Query 1 result:", rows1);
+
+        const [rows2] = await connection.promiseQuery(query2);
+        console.log("Query 2 result:", rows2);
+
+        const [rows3] = await connection.promiseQuery(query3);
+        console.log("Query 3 result:", rows3);
+
+        const [rows4] = await connection.promiseQuery(query4);
+
         console.log("Query 4 result:", rows4);
 
         await connection.end();
@@ -54,11 +81,13 @@ async function executeQueries() {
         console.error("Error executing queries:", error);
     }
 }
-
 createResearchTb()
     .then(insertResearchPapersData)
     .then(executeQueries)
     .catch(error => {
         console.error("Error initializing database and executing queries:", error);
     });
+executeQueries();
+
+module.exports = { executeQueries };
 

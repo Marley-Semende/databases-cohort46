@@ -6,12 +6,18 @@ const promiseQuery = require("./dbUtils");
 async function createAuthorTb(){
 =======
 const mysql = require("mysql2/promise");
-const { createConnection, createPromiseQuery } = require("./dbUtils");
+const createConnection = require("./connection");
+const promiseQuery = require("./dbUtils");
 
+<<<<<<< HEAD
 async function createAuthorTb() {
 >>>>>>> 24d2f78 (re-add package.json package.jsonlock)
+=======
+async function createAuthorTb(){
+>>>>>>> ef19629 (fix pr)
     try {
         const connection = await createConnection();
+
         await promiseQuery(`
             CREATE TABLE IF NOT EXISTS authors (
                 author_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -27,7 +33,11 @@ async function createAuthorTb() {
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> 24d2f78 (re-add package.json package.jsonlock)
+=======
+        // Insert authors data
+>>>>>>> ef19629 (fix pr)
         await promiseQuery(`
             INSERT INTO authors (author_name, university, date_of_birth, h_index, gender)
             VALUES
@@ -58,7 +68,10 @@ async function createAuthorTb() {
 
 async function addMentorsTb() {
     try {
+<<<<<<< HEAD
         const promiseQuery = await createPromiseQuery();
+=======
+>>>>>>> ef19629 (fix pr)
         const connection = await createConnection();
         await promiseQuery(`
             ALTER TABLE authors 
@@ -67,15 +80,25 @@ async function addMentorsTb() {
             FOREIGN KEY (mentor) REFERENCES authors(author_id)
         `);
         console.log("Mentor column added successfully!");
+<<<<<<< HEAD
     } catch (err) {
         await connection.end();
     } catch (err) {
+=======
+        await connection.end();
+    } catch(err) {
+>>>>>>> ef19629 (fix pr)
         console.error("Error adding mentor column:", err);
     }
 }
 
 createAuthorTb();
+<<<<<<< HEAD
 addMentorsTb()
 
 module.exports = { createAuthorTb, addMentorsTb };
 
+=======
+addMentorsTb();
+module.exports = {createAuthorTb, addMentorsTb};
+>>>>>>> ef19629 (fix pr)

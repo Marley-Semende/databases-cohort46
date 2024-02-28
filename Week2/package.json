@@ -1,10 +1,12 @@
-{
-  "name": "week2",
+
+  {
+  "name": "databases-w2-assignment",
   "version": "1.0.0",
-  "description": "## Agenda",
-  "main": "aggregate.js",
+  "description": "",
+  "type": "commonjs",
+  "main": "connection.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "connection.js"
   },
   "keywords": [],
   "author": "",

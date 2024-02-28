@@ -14,6 +14,7 @@ async function createResearchTb() {
             )
         `);
         console.log("Research papers table created successfully!");
+        console.log("Research paper table created successfully!");
         await connection.end();
     } catch (err) {
         console.error("Error creating research paper table:", err);
@@ -62,6 +63,8 @@ async function insertResearchPapersData() {
         console.log("Research papers data inserted successfully!");
 
         await connection.end();
+
+        //await connection.end();
     } catch (err) {
         console.error("Error inserting research papers data:", err);
     }
@@ -70,5 +73,3 @@ async function insertResearchPapersData() {
 createResearchTb();
 insertResearchPapersData();
 module.exports = { createResearchTb, insertResearchPapersData };
-
-

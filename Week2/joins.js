@@ -15,9 +15,6 @@ async function getAuthorsAndMentors() {
         console.error("Error retrieving authors and mentors:", error);
     }
 }
-<<<<<<< HEAD
-=======
-
 
 async function getAllAuthorsWithPaperTitles() {
     try {
@@ -35,8 +32,4 @@ async function getAllAuthorsWithPaperTitles() {
 }
 
 getAllAuthorsWithPaperTitles();
-
-
-
->>>>>>> 24d2f78 (re-add package.json package.jsonlock)
 getAuthorsAndMentors();
