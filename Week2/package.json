@@ -1,0 +1,17 @@
+{
+  "name": "databases-w2-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "connection.js",
+  "scripts": {
+    "start": "connection.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.9.2",
+    "util": "^0.12.5"
+  }
+}
