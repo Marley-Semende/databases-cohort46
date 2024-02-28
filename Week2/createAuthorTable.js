@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 
 const createConnection = require("./connection");
 const promiseQuery = require("./dbUtils");
 
 async function createAuthorTb(){
+=======
+const mysql = require("mysql2/promise");
+const { createConnection, createPromiseQuery } = require("./dbUtils");
+
+async function createAuthorTb() {
+>>>>>>> 24d2f78 (re-add package.json package.jsonlock)
     try {
         const connection = await createConnection();
         await promiseQuery(`
@@ -17,6 +24,10 @@ async function createAuthorTb(){
         `);
 
         console.log("Authors table created successfully!");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24d2f78 (re-add package.json package.jsonlock)
         await promiseQuery(`
             INSERT INTO authors (author_name, university, date_of_birth, h_index, gender)
             VALUES

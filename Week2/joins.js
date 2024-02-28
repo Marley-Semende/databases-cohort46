@@ -15,4 +15,28 @@ async function getAuthorsAndMentors() {
         console.error("Error retrieving authors and mentors:", error);
     }
 }
+<<<<<<< HEAD
+=======
+
+
+async function getAllAuthorsWithPaperTitles() {
+    try {
+        const promiseQuery = await createPromiseQuery();
+        const [rows] = await promiseQuery(`
+            SELECT authors.*, research_papers.paper_title
+            FROM authors
+            LEFT JOIN author_paper ON authors.author_id = author_paper.author_id
+            LEFT JOIN research_papers ON author_paper.paper_id = research_papers.paper_id;
+        `);
+        console.log(rows);
+    } catch (error) {
+        console.error("Error retrieving authors and paper titles:", error);
+    }
+}
+
+getAllAuthorsWithPaperTitles();
+
+
+
+>>>>>>> 24d2f78 (re-add package.json package.jsonlock)
 getAuthorsAndMentors();
