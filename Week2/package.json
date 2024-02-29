@@ -1,0 +1,16 @@
+{
+  "name": "week2",
+  "version": "1.0.0",
+  "description": "These are the topics for week 2:",
+  "main": "async-create-insert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "util": "^0.12.5"
+  }
+}
