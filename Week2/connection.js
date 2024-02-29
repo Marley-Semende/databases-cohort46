@@ -19,4 +19,8 @@ console.error("Error creating database pool:", error);
 throw error;
 }
 }
+<<<<<<< HEAD
 module.exports = createConnection;
+=======
+module.exports = createConnection;
+>>>>>>> 48f3362 (restore branch)

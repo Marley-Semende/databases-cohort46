@@ -63,8 +63,11 @@ async function insertResearchPapersData() {
         console.log("Research papers data inserted successfully!");
 
         await connection.end();
+<<<<<<< HEAD
 
         //await connection.end();
+=======
+>>>>>>> 48f3362 (restore branch)
     } catch (err) {
         console.error("Error inserting research papers data:", err);
     }

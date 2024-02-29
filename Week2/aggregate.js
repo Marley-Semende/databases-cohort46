@@ -28,7 +28,6 @@ async function executeQueries() {
             LEFT JOIN author_paper ap ON rp.paper_id = ap.paper_id
             GROUP BY rp.paper_id;
         `;
-
         const query2 = `
             SELECT SUM(num_papers) AS total_female_papers
             FROM (

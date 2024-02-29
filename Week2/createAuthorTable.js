@@ -1,20 +1,27 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const createConnection = require("./connection");
 const promiseQuery = require("./dbUtils");
 
 async function createAuthorTb(){
 =======
+=======
+>>>>>>> 48f3362 (restore branch)
 const mysql = require("mysql2/promise");
 const createConnection = require("./connection");
 const promiseQuery = require("./dbUtils");
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 async function createAuthorTb() {
 >>>>>>> 24d2f78 (re-add package.json package.jsonlock)
 =======
 async function createAuthorTb(){
 >>>>>>> ef19629 (fix pr)
+=======
+async function createAuthorTb(){
+>>>>>>> 48f3362 (restore branch)
     try {
         const connection = await createConnection();
 
@@ -31,6 +38,7 @@ async function createAuthorTb(){
 
         console.log("Authors table created successfully!");
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 <<<<<<< HEAD
@@ -38,6 +46,9 @@ async function createAuthorTb(){
 =======
         // Insert authors data
 >>>>>>> ef19629 (fix pr)
+=======
+
+>>>>>>> 48f3362 (restore branch)
         await promiseQuery(`
             INSERT INTO authors (author_name, university, date_of_birth, h_index, gender)
             VALUES
@@ -69,9 +80,12 @@ async function createAuthorTb(){
 async function addMentorsTb() {
     try {
 <<<<<<< HEAD
+<<<<<<< HEAD
         const promiseQuery = await createPromiseQuery();
 =======
 >>>>>>> ef19629 (fix pr)
+=======
+>>>>>>> 48f3362 (restore branch)
         const connection = await createConnection();
         await promiseQuery(`
             ALTER TABLE authors 
@@ -81,6 +95,7 @@ async function addMentorsTb() {
         `);
         console.log("Mentor column added successfully!");
 <<<<<<< HEAD
+<<<<<<< HEAD
     } catch (err) {
         await connection.end();
     } catch (err) {
@@ -88,11 +103,16 @@ async function addMentorsTb() {
         await connection.end();
     } catch(err) {
 >>>>>>> ef19629 (fix pr)
+=======
+        await connection.end();
+    } catch(err) {
+>>>>>>> 48f3362 (restore branch)
         console.error("Error adding mentor column:", err);
     }
 }
 
 createAuthorTb();
+<<<<<<< HEAD
 <<<<<<< HEAD
 addMentorsTb()
 
@@ -102,3 +122,7 @@ module.exports = { createAuthorTb, addMentorsTb };
 addMentorsTb();
 module.exports = {createAuthorTb, addMentorsTb};
 >>>>>>> ef19629 (fix pr)
+=======
+addMentorsTb();
+module.exports = {createAuthorTb, addMentorsTb};
+>>>>>>> 48f3362 (restore branch)

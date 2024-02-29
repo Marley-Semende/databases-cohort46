@@ -15,6 +15,7 @@ async function getAuthorsAndMentors() {
         console.error("Error retrieving authors and mentors:", error);
     }
 }
+<<<<<<< HEAD
 
 async function getAllAuthorsWithPaperTitles() {
     try {
@@ -32,4 +33,6 @@ async function getAllAuthorsWithPaperTitles() {
 }
 
 getAllAuthorsWithPaperTitles();
+=======
+>>>>>>> 48f3362 (restore branch)
 getAuthorsAndMentors();
