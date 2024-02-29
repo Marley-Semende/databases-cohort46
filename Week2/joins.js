@@ -1,5 +1,5 @@
 const createPromiseQuery = require("./dbUtils");
-
+const mysql = require("mysql2/promie")
 async function getAuthorsAndMentors() {
     try {
         const promiseQuery = await createPromiseQuery();
@@ -15,6 +15,4 @@ async function getAuthorsAndMentors() {
         console.error("Error retrieving authors and mentors:", error);
     }
 }
-
-
 getAuthorsAndMentors();
