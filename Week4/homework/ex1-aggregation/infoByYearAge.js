@@ -11,8 +11,15 @@ async function getInfoByYearAge(year, age) {
     const db = client.db("databaseWeek4");
     const collection = db.collection("populationPyramid");
 
+    //filter for year , age
     const pipeline = [
-      { $match: { Year: year, Age: age } },
+      {
+        $match: {
+          Year: year,
+          Age: age,
+          Country: { $regex: /^[A-Z\s]+$/ },
+        },
+      },
       {
         $addFields: {
           TotalPopulation: { $add: ["$M", "$F"] },

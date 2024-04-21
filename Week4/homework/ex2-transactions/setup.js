@@ -2,12 +2,16 @@ const { MongoClient } = require("mongodb");
 const dotenv = require("dotenv");
 dotenv.config();
 
-async function setAccounts() {
-  const client = new MongoClient(process.env.URI);
+// mongo client
+const client = new MongoClient(process.env.URI);
 
+async function setAccounts() {
   try {
-    await client.connect();
-    console.log("Connected to MongoDB successfully!");
+    if(!client.isConnected()) {
+      await client.connect();
+      console.log("Connected to MongoDB successfully!");
+    }
+    
     const db = client.db("transactionsDB");
     const collection = db.collection("accounts");
     //clean acc

@@ -2,17 +2,23 @@ const { MongoClient } = require("mongodb");
 const dotenv = require("dotenv");
 dotenv.config();
 
+//mongo client
+const client = new MongoClient(process.env.URI);
+
 async function transfer(
   senderAccountNumber,
   receiverAccountNumber,
   amount,
   remark
 ) {
-  const client = new MongoClient(process.env.URI);
-
   try {
-    await client.connect();
-    console.log("Connected to MongoDB successfully!");
+    if (!client.isConnected()) {
+      await client.connect();
+      console.log("Connected to MongoDB successfully!");
+    }
+
+    const session = client.startSession();
+    session.startTransaction();
 
     const db = client.db("transactionsDB");
     const collection = db.collection("accounts");
@@ -70,15 +76,19 @@ async function transfer(
             remark,
           },
         },
-      }
+      },
+      { session }
     );
 
+    await session.commitTransaction();
     console.log(
       `Transfer of ${amount} from account ${senderAccountNumber} to account ${receiverAccountNumber} was successful!`
     );
   } catch (err) {
     console.error("Error:", err);
+    await session.abortTransaction();
   } finally {
+    session.endSession();
     await client.close();
   }
 }
